@@ -4,38 +4,26 @@
     Polymer({
 	is: 'ue-dice',
 	properties: {
-	    dicesize: {
-		type: Number
-	    },
-	    value: {
-		type: Number
-	    },
-	    dx: {
-		type: Number
-	    },
-	    dy: {
-		type: Number
-	    },
-	    dcolor: {
-		type: String
+	    dice: {
+		type: Object
 	    }
 	    
 	},
-	ccolor: function(value,pos){
+	ccolor: function(value,pos,color,dotcolor){
 	    if ( (value == 1 || value == 5 || value == 3 ) && pos == 4 ){
-		return "yellow";
+		return dotcolor;
 	    }
 	    if ( (value == 5 || value == 6 || value == 4 || value == 2 || value == 3)
 		 && (pos == 1 || pos == 7) ){
-		return "yellow";
+		return dotcolor;
 	    }
 	    if ( value == 6 && ( pos == 2 || pos == 6 )){
-		return "yellow";
+		return dotcolor;
 	    }
 	    if ((value == 5 || value == 6 || value == 4) && (pos == 3 || pos ==5) ){
-		return "yellow";
+		return dotcolor;
 	    }
-	    return this.color();
+	    return color;
 	},
 	cx: function(dicesize,pos){
 	    if (pos == 4 ){
@@ -59,8 +47,8 @@
 		return dicesize - dicesize/4;
 	    }
 	},
-	color: function(){
-		return "red";
+	color: function(dcolor){
+	    return dcolor;
 	},
 	dice1: function(){
 	    return true;
