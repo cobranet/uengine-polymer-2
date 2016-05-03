@@ -1,0 +1,60 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<dom-module id="ue-dice">
+  <link rel="stylesheet" href="ue-dice.css">
+  <template>
+    <svg width$="{{dicesize}}" height$="{{dicesize}}" width$="{{dicesize}}" class="dice">
+      <rect fill$="{{color()}}"
+	    rx$= "{{part(dicesize,8)}}"
+	    ry$= "{{part(dicesize,8)}}"
+	    width$="{{dicesize}}"
+	    height$="{{dicesize}}"></rect>
+      <circle cy$="{{cy(dicesize,4)}}",
+	      cx$="{{cx(dicesize,4)}}",
+	      r$="{{part(dicesize,9)}}"
+	      fill$="{{ccolor(value,4)}}">
+      </circle>	
+      <circle cy$="{{cy(dicesize,1)}}",
+	      cx$="{{cx(dicesize,1)}}",
+	      r$="{{part(dicesize,9)}}"
+	      fill$="{{ccolor(value,1)}}">
+      </circle>	
+      <circle cy$="{{cy(dicesize,2)}}",
+	      cx$="{{cx(dicesize,2)}}",
+	      r$="{{part(dicesize,9)}}"
+	      fill$="{{ccolor(value,2)}}">
+      </circle>	
+      <circle cy$="{{cy(dicesize,3)}}",
+	      cx$="{{cx(dicesize,3)}}",
+	      r$="{{part(dicesize,9)}}"
+	      fill$="{{ccolor(value,3)}}">
+      </circle>	
+      <circle cy$="{{cy(dicesize,5)}}",
+	      cx$="{{cx(dicesize,5)}}",
+	      r$="{{part(dicesize,9)}}"
+	      fill$="{{ccolor(value,5)}}">
+      </circle>	
+      <circle cy$="{{cy(dicesize,6)}}",
+	      cx$="{{cx(dicesize,6)}}",
+	      r$="{{part(dicesize,9)}}"
+	      fill$="{{ccolor(value,6)}}">
+      </circle>	
+      <circle cy$="{{cy(dicesize,7)}}",
+	      cx$="{{cx(dicesize,7)}}",
+	      r$="{{part(dicesize,9)}}"
+	      fill$="{{ccolor(value,7)}}">
+      </circle>	
+    </svg>
+
+  </template>
+  <script src="ue-dice.js"></script>
+</dom-module>
