@@ -11,11 +11,7 @@
 		notify: true
             },
 	},
-	show: function(){
-	    return false;
-	},
 	active_dice_value: function(status){
-	    console.log(status);
 	    if(status == 0) {
 		return 0;
 	    }
@@ -27,15 +23,37 @@
 	    }
 		
 	},
+	updateScore: function(){
+	    var i;
+	    console.log("Update score");
+	    for(i=0;i<3;i++){
+		if (this.ssearch.row1[i]!="_" && this.ssearch.row2[i]!="_" ){
+		    console.log(this.ssearch.row1[i]);
+		    console.log(this.ssearch.row2[i]);
+		    this.ssearch.row3[i]=+this.ssearch.row1[i]-this.ssearch.row2[i]; 
+		}
+	    }
+	},
+	    
 	scoreCell: function(e){
-	    console.log(e);
+	    console.log("Score cell");
+	    console.log(e.detail);
 	    if(this.ssearch.status == 1){
 		this.ssearch.status = 2;
 	    } else {
 		this.ssearch.status = 0;
 	    }
-	    this.set('ssearch.status',this.ssearch.status);
+	    this.ssearch[e.detail.row][e.detail.col] = e.detail.val;
+	    this.updateScore();
+	    this.set('ssearch.status',this.ssearch.status);	    
 	    this.setColors();
+	    
+	},
+	cellvalue: function(row,col,status){
+	    if (row == 2 ) {
+		return this.ssearch.row3[col];
+	    }
+	    return 0;
 	},
 	showRoll: function(status){
 	    console.log("In show");
