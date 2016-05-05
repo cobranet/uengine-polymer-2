@@ -1,0 +1,60 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="stylesheet" href="ue-search.css">
+<dom-module id="ue-search">
+  <template>
+    <div class="searchrow">
+      <template is="dom-repeat" items="{{ssearch.row1}}">
+	<template is="dom-if" if="{{show()}}">
+	  <ue-searchcell dicevalue="{{active_dice_value(ssearch.status)}}" on-score="scoreCell"  value="{{item}}"></ue-searchcell>
+	</template>
+	<template is="dom-if" if="{{!show()}}">
+	  <ue-searchcell dicevalue="{{active_dice_value(ssearch.status)}}" on-score="scoreCell" value="&nbsp"></ue-searchcell>
+	</template>
+    </template>
+    </div>
+    <div class="searchrow">
+      <template is="dom-repeat" items="{{ssearch.row2}}">
+	<template is="dom-if" if="{{show()}}">
+	  <ue-searchcell dicevalue="{{active_dice_value(ssearch.status)}}"  on-score="scoreCell" value="{{item}}"></ue-searchcell>
+	</template>
+	<template is="dom-if" if="{{!show()}}">
+	  <ue-searchcell dicevalue="{{active_dice_value(ssearch.status)}}" on-score="scoreCell" value="&nbsp"></ue-searchcell>
+	</template>
+      </template>
+    </div>
+    <div class="searchrow">
+      <template is="dom-repeat" items="{{ssearch.row3}}">
+	<template is="dom-if" if="{{show()}}">
+	  <ue-searchcell dicevalue="{{active_dice_value(ssearch.status)}}" on-score="scoreCell" value="{{item}}"></ue-searchcell>
+	</template>
+	<template is="dom-if" if="{{!show()}}">
+	  <ue-searchcell dicevalue="{{active_dice_value(ssearch.status)}}" on-score="scoreCell" value="&nbsp"></ue-searchcell>
+	</template>
+      </template>
+    </div>
+
+    <hr>
+    <div hidden$="{{!showRoll(ssearch.status)}}">
+      <ue-dice dice="{{ssearch.dice1}}"></ue-dice>
+      <ue-dice dice="{{ssearch.dice2}}"></ue-dice>
+    </div>
+    <div hidden$="{{showRoll(ssearch.status)}}" >
+      <paper-button class="searchbutton" on-tap="roll">Roll</paper-button>
+    </div>
+  </template>
+  <script src="ue-search.js">
+  </script>
+  <script>
+    var el = document.querySelector('event-retargeting');
+  </script>
+</dom-module>

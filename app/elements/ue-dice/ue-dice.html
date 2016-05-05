@@ -11,7 +11,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <dom-module id="ue-dice">
   <link rel="stylesheet" href="ue-dice.css">
-  <template>
+  <template >
+    <span on-tap="handleTap">
     <svg width$="{{dice.dicesize}}" height$="{{dice.dicesize}}" width$="{{dice.dicesize}}" class="dice">
       <rect fill$="{{dice.color}}"
 	    rx$= "{{part(dice.dicesize,8)}}"
@@ -56,6 +57,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 	      fill$="{{ccolor(dice.value,7,dice.color,dice.dotcolor)}}">
       </circle>	
     </svg>
+    <span>
   </template>
   <script src="ue-dice.js"></script>
 </dom-module>

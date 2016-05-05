@@ -1,0 +1,13 @@
+:host {
+    display: block;
+}
+
+.searchbutton {
+    background: maroon;
+    color: white;
+}
+
+
+.searchrow {
+    margin-bottom: 3px;
+}

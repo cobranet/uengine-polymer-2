@@ -108,13 +108,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <div class="content">
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
             <section data-route="home">
-              <paper-material elevation="1">
+
+	      <paper-material elevation="1">
+		<template is="dom-repeat" items = "{{game.sites}}">
+		  <ue-site site="{{item}}"></ue-site>
+		</template>
+              </paper-material>
+
+
+	      <paper-material elevation="1">
 		<ue-game game="{{game}}"></ue-game>
 		<template is="dom-repeat" items = "{{game.dices}}">
 		  <ue-dice dice="{{item}}"></ue-dice>
 		</template>
-		{{game.dice.color}}
               </paper-material>
+
 
             </section>
           </iron-pages>

@@ -9,10 +9,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
-<dom-module id="ue-game">
-  <script src="dice.js"></script>
-  <script src="ue-game.js"></script>
-  <script>
-   </script>
+<dom-module id="ue-site">
+  <link rel="stylesheet" href="ue-site.css">
+  <template>
+    <paper-card heading="{{site.name}}" >
+      <div class="card-content" style="background:url({{site.image}}) no-repeat;">
+	<ue-search ssearch="{{site.search}}"></ue-search>
+      </div>
+    </paper-card>
+  </template>
+  <script src='ue-site.js'>
+  </script>
 </dom-module>
+

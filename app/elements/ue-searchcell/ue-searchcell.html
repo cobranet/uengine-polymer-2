@@ -10,9 +10,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<dom-module id="ue-game">
-  <script src="dice.js"></script>
-  <script src="ue-game.js"></script>
-  <script>
-   </script>
+<dom-module id="ue-searchcell">
+  <link rel="stylesheet" href="ue-searchcell.css">
+  <template>
+      <paper-card on-tap="handleTap" id="c00" class="searchcell" elevation="3">
+	<span>{{value}}</span>
+      </paper-card>
+  </template>
+  
+  <script src="ue-searchcell.js">
+  </script>
 </dom-module>
