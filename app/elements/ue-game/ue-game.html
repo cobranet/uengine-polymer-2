@@ -9,10 +9,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 
 <dom-module id="ue-game">
+  <template>
+  <iron-ajax
+     auto
+     url="http://localhost:5001/sites"
+     handle-as="json"
+     on-response="handleResponse"
+     debounce-duration="300">
+  </iron-ajax>
+  </template>   
+
+
   <script src="dice.js"></script>
+  <script src="site.js"></script>
   <script src="ue-game.js"></script>
   <script>
-   </script>
+  </script>
 </dom-module>

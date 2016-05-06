@@ -1,67 +1,26 @@
-/*global Polymer,alert,dice */
+/*global Polymer,alert,dice,site */
 
 (function() {
     'use strict';
 
     Polymer({
       is: 'ue-game',
-
+	handleResponse: function(data){
+	    var sites = [];
+	    var i;
+	    for (i=0;i<data.detail.response.length;i++){
+		sites.push(site(data.detail.response[i]));
+	    }
+	    this.set("game.sites",sites);
+	    console.log(this.game);
+	    
+	},
       properties: {
         game: {
             notify: true,
             value: function(){
 		return {
-		    sites: [{name: "Halebeard Peek",
-			     image: "../../images/pole.png",
-			     active_dice: 0,
-			     search: { status: 0,
-				       row1: ["_","_","_"],
-				       row2: ["_","_","_"],
-				       row3: ["_","_","_"],
-				       dice1: dice({
-					   value: 0,
-					   color: "gold",
-					   dotcolor: "black",
-					   clickable: false,
-					   rollable: true,
-					   dicesize: 60
-				       }),			     
-				       dice2: dice({
-					   value: 0,
-					   color: "gold",
-					   dotcolor: "black",
-					   clickable: false,
-					   rollable: true,
-					   dicesize: 60
-				       }),
-				     }
-			    },
-			    {name: "Mistery Desert",
-			     image: "../../images/desert.png",
-			     active_dice: 0,
-			     search: { status: 0,
-				       row1: ["_","_","_"],
-				       row2: ["_","_","_"],
-				       row3: ["_","_","_"],
-				       dice1: dice({
-					   value: 0,
-					   color: "gold",
-					   dotcolor: "black",
-					   clickable: false,
-					   rollable: true,
-					   dicesize: 60
-				       }),			     
-				       dice2: dice({
-					   value: 0,
-					   color: "gold",
-					   clickable: false,
-					   rollable: true,
-					   dotcolor: "black",
-					   dicesize: 60
-				       }),
-				     }
-			    }
-			   ],
+		    sites: [],
 		    dices: [dice({ value: 3,
 				   dicesize: 80,
 				   color: "gold",
