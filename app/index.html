@@ -107,7 +107,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <section data-route="home">
 	       <ue-facebook-login
                     appID="2028912550667185"
-                    logout-link graph-url="me?fields=name,email,birthday"
+                    logout-link graph-url="me?fields=name,email,birthday,picture"
                     scope="public_profile email user_birthday"
                     graph-response="{{resp}}"
                     auto-api-call></ue-facebook-login>
@@ -115,6 +115,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                   <span>[[resp.name]]</span>
                   <div>[[resp.email]]</div>
                   <div>[[resp.birthday]]</div>
+		  <img src="[[resp.picture.data.url]]"</img>
                 </div>
 	      <paper-material elevation="1">
 		<template is="dom-repeat" items = "{{game.sites}}">
