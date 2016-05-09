@@ -4,6 +4,7 @@ var site = function(spec){
     that = {name: spec.name,
 	    image: spec.image,
 	    active_dice: 0,
+	    state: "IN_SEARCH",
 	    search: { status: 0,
 		      row1: ["_","_","_"],
 		      row2: ["_","_","_"],

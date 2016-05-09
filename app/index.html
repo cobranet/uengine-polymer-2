@@ -62,16 +62,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <body unresolved>
   <span id="browser-sync-binding"></span>
   <template is="dom-bind" id="app">
-    
     <paper-drawer-panel id="paperDrawerPanel">
       <!-- Drawer Scroll Header Panel -->
       <paper-scroll-header-panel drawer fixed>
-	
         <!-- Drawer Toolbar -->
         <paper-toolbar id="drawerToolbar">
           <span class="menu-name">Menu</span>
         </paper-toolbar>
-
         <!-- Drawer Content -->
         <paper-menu attr-for-selected="data-route" selected="[[route]]">
           <a data-route="home" href="{{baseUrl}}">
@@ -88,7 +85,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
 
           <span class="space"></span>
-
+	  
           <!-- Toolbar icons -->
           <paper-icon-button icon="refresh"></paper-icon-button>
           <paper-icon-button icon="search"></paper-icon-button>
@@ -108,7 +105,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <div class="content">
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
             <section data-route="home">
-
+	      <h1>Before</h1>
+	       <ue-facebook-login
+                    appID="2028912550667185"
+                    logout-link graph-url="me?fields=name,email,birthday"
+                    scope="public_profile email user_birthday"
+                    graph-response="{{resp}}"
+                    auto-api-call></ue-facebook-login>
+                <div style="margin-top: 20px">
+                  <span>[[resp.name]]</span>
+                  <div>[[resp.email]]</div>
+                  <div>[[resp.birthday]]</div>
+                </div>
+	      <h1>After</h1>	
 	      <paper-material elevation="1">
 		<template is="dom-repeat" items = "{{game.sites}}">
 		  <ue-site site="{{item}}"></ue-site>
