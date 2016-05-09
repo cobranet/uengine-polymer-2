@@ -105,7 +105,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <div class="content">
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
             <section data-route="home">
-	      <h1>Before</h1>
 	       <ue-facebook-login
                     appID="2028912550667185"
                     logout-link graph-url="me?fields=name,email,birthday"
@@ -117,7 +116,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                   <div>[[resp.email]]</div>
                   <div>[[resp.birthday]]</div>
                 </div>
-	      <h1>After</h1>	
 	      <paper-material elevation="1">
 		<template is="dom-repeat" items = "{{game.sites}}">
 		  <ue-site site="{{item}}"></ue-site>
